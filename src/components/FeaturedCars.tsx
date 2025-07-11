@@ -83,6 +83,71 @@ const featuredCars = [
     transmission: 'Manual',
     features: ['14 Seater', 'Large Luggage', 'Group Travel'],
     available: true
+  },
+  {
+    id: 7,
+    name: 'Ford EcoSport',
+    category: 'SUV',
+    image: 'https://images.unsplash.com/photo-1606016792748-2d7cdd936f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    price: 420,
+    rating: 4.5,
+    seats: 5,
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    features: ['Compact SUV', 'High Ground Clearance', 'Smart Features'],
+    available: true
+  },
+  {
+    id: 8,
+    name: 'Audi A4',
+    category: 'Luxury',
+    image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    price: 920,
+    rating: 4.8,
+    seats: 5,
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    features: ['Quattro AWD', 'Virtual Cockpit', 'Premium Audio'],
+    available: true
+  },
+  {
+    id: 9,
+    name: 'Nissan Micra',
+    category: 'Economy',
+    image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    price: 230,
+    rating: 4.4,
+    seats: 5,
+    fuel: 'Petrol',
+    transmission: 'Manual',
+    features: ['Compact Size', 'Easy Parking', 'Great MPG'],
+    available: true
+  },
+  {
+    id: 10,
+    name: 'Chevrolet Suburban',
+    category: 'SUV',
+    image: 'https://images.unsplash.com/photo-1586789019687-a4f7da24bc75?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    price: 780,
+    rating: 4.6,
+    seats: 8,
+    fuel: 'Petrol',
+    transmission: 'Automatic',
+    features: ['8 Seater', 'Towing Capacity', 'Premium Interior'],
+    available: true
+  },
+  {
+    id: 11,
+    name: 'Mercedes Sprinter',
+    category: 'Van',
+    image: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    price: 720,
+    rating: 4.7,
+    seats: 12,
+    fuel: 'Diesel',
+    transmission: 'Automatic',
+    features: ['12 Seater', 'Luxury Interior', 'Executive Travel'],
+    available: true
   }
 ];
 
