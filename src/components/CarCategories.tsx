@@ -10,7 +10,7 @@ const categories = [
     icon: Car,
     description: 'Fuel-efficient and budget-friendly',
     features: ['Great fuel economy', 'Easy parking', 'Perfect for city drives'],
-    price: 'From R250/day',
+    price: 'From R350/day',
     gradient: 'from-green-500 to-emerald-600'
   },
   {
