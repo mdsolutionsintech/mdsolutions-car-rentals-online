@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import { Star, Users, Fuel, Settings, Calendar, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 
 const featuredCars = [
   {
@@ -187,12 +187,14 @@ const FeaturedCars = () => {
                     <span className="text-2xl font-bold text-blue-600">R{car.price}</span>
                     <span className="text-gray-600">/day</span>
                   </div>
-                  <Button 
-                    className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
-                    disabled={!car.available}
-                  >
-                    {car.available ? 'Rent Now' : 'Unavailable'}
-                  </Button>
+                  <Link to="/booking">
+                    <Button 
+                      className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+                      disabled={!car.available}
+                    >
+                      {car.available ? 'Rent Now' : 'Unavailable'}
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -200,9 +202,11 @@ const FeaturedCars = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-            View All Vehicles
-          </Button>
+          <Link to="/booking">
+            <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+              View All Vehicles
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -2,8 +2,16 @@
 import React from 'react';
 import { ArrowRight, Star, Users, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
+  const scrollToCars = () => {
+    const carsSection = document.getElementById('cars');
+    if (carsSection) {
+      carsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -32,13 +40,19 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg px-8 py-4">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg px-8 py-4"
+              onClick={scrollToCars}
+            >
               Browse Our Fleet
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-4">
-              Learn More
-            </Button>
+            <Link to="/about">
+              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-4">
+                Learn More
+              </Button>
+            </Link>
           </div>
 
           {/* Stats */}

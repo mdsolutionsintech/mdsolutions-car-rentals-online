@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Car, Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,7 +34,7 @@ const Header = () => {
       {/* Main Navigation */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3">
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-lg">
               <Car className="w-8 h-8 text-white" />
             </div>
@@ -41,25 +42,27 @@ const Header = () => {
               <h1 className="text-2xl font-bold text-gray-900">MDSolutions</h1>
               <p className="text-sm text-gray-600">Car Rentals</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Home
-            </a>
-            <a href="#cars" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            </Link>
+            <a href="/#cars" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Our Fleet
             </a>
-            <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               About
-            </a>
-            <a href="#contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            </Link>
+            <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Contact
-            </a>
-            <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
-              Book Now
-            </Button>
+            </Link>
+            <Link to="/booking">
+              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
+                Book Now
+              </Button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -75,21 +78,23 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t pt-4">
             <div className="flex flex-col space-y-4">
-              <a href="#home" className="text-gray-700 hover:text-blue-600 font-medium">
+              <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium">
                 Home
-              </a>
-              <a href="#cars" className="text-gray-700 hover:text-blue-600 font-medium">
+              </Link>
+              <a href="/#cars" className="text-gray-700 hover:text-blue-600 font-medium">
                 Our Fleet
               </a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium">
+              <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium">
                 About
-              </a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600 font-medium">
+              </Link>
+              <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium">
                 Contact
-              </a>
-              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 w-full">
-                Book Now
-              </Button>
+              </Link>
+              <Link to="/booking">
+                <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 w-full">
+                  Book Now
+                </Button>
+              </Link>
             </div>
           </nav>
         )}
