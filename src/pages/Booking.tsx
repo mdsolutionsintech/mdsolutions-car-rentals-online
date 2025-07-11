@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Booking = () => {
-  const [bookingData, setBookingData] = useState({
+  const initialBookingData = {
     pickupLocation: '',
     dropoffLocation: '',
     pickupDate: '',
@@ -22,7 +22,10 @@ const Booking = () => {
     phone: '',
     licenseNumber: '',
     specialRequests: ''
-  });
+  };
+
+  const [bookingData, setBookingData] = useState(initialBookingData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { toast } = useToast();
 
@@ -33,13 +36,57 @@ const Booking = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Booking submitted:', bookingData);
-    toast({
-      title: "Booking Request Submitted!",
-      description: "We'll contact you within 24 hours to confirm your booking details.",
-    });
+    
+    console.log('Form submission started');
+    console.log('Booking data:', bookingData);
+    
+    // Validate required fields
+    const requiredFields = [
+      'pickupLocation', 'dropoffLocation', 'pickupDate', 'pickupTime',
+      'dropoffDate', 'dropoffTime', 'carType', 'name', 'email', 'phone', 'licenseNumber'
+    ];
+    
+    const missingFields = requiredFields.filter(field => !bookingData[field as keyof typeof bookingData]);
+    
+    if (missingFields.length > 0) {
+      console.log('Missing required fields:', missingFields);
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields marked with *",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // Simulate API call - replace with actual API call when backend is ready
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      console.log('Booking submitted successfully:', bookingData);
+      
+      toast({
+        title: "Booking Request Submitted!",
+        description: "We'll contact you within 24 hours to confirm your booking details.",
+      });
+      
+      // Clear the form
+      setBookingData(initialBookingData);
+      console.log('Form cleared');
+      
+    } catch (error) {
+      console.error('Error submitting booking:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your booking. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -311,10 +358,11 @@ const Booking = () => {
                     <Button 
                       type="submit" 
                       size="lg"
+                      disabled={isSubmitting}
                       className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-12 py-4 text-lg"
                     >
                       <CreditCard className="w-6 h-6 mr-2" />
-                      Submit Booking Request
+                      {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
                     </Button>
                     <p className="text-sm text-gray-600 mt-4">
                       We'll contact you within 24 hours to confirm your booking and arrange payment.
